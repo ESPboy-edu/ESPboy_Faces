@@ -40,7 +40,7 @@ String emotionName[] = {
   "Surprised",
   "Skeptic",
   "Fustrated",
-  "Unimpressed",
+  "Unimpresse",
   "Sleepy",
   "Suspicious",
   "Squint",
@@ -65,10 +65,13 @@ void loop() {
  static uint32_t counter=millis();
  static uint8_t emotionno=0;
  static uint8_t emotionflag=1;
+ static uint8_t n=0;
 
  if (millis()-counter > 3000) {
    counter=millis();
-   emotionno=random(EMOTIONS_COUNT);
+   emotionno=n;//random(EMOTIONS_COUNT);
+   n++;
+   if(n>=EMOTIONS_COUNT)n=0;
    emotionflag=1;
  }
  
