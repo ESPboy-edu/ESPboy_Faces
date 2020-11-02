@@ -90,7 +90,7 @@ void Face::Draw()
 	RightEye.CenterX = CenterX + EyeSize / 2 + EyeInterDistance;
 	RightEye.CenterY = CenterY;
 	RightEye.Draw(_buffer);
-
-	_buffer.pushSprite(0, 0);
+  _buffer.setPivot(_buffer.width(), 0);//_buffer.height()/2);
+  _buffer.pushRotated(270, -1);
+	//_buffer.pushSprite(0, 0);
 }
-

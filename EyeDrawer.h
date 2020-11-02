@@ -13,13 +13,16 @@ You should have received a copy of the GNU Affero General Public License along w
 #ifndef _EYEDRAWER_h
 #define _EYEDRAWER_h
 
+#define TFT_COLOR TFT_YELLOW
+
+
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "arduino.h"
 #else
 #include "WProgram.h"
 #endif
 
-#include <M5StickC.h>
+#include "ESPboyInit.h"
 #include "EyeConfig.h"
 
 
@@ -117,46 +120,46 @@ public:
 		int32_t min_e_y = max(BR0_y, TR0_y);
 		int32_t max_e_y = min(TL0_y, BL0_y);
 
-		EyeDrawer::FillReactangle(buffer, min_c_x, min_c_y, max_c_x, max_c_y, TFT_CYAN);
+		EyeDrawer::FillReactangle(buffer, min_c_x, min_c_y, max_c_x, max_c_y, TFT_COLOR);
 
-		EyeDrawer::FillReactangle(buffer, TRc_x, min_e_y, BRc_x, min_c_y, TFT_CYAN);
-		EyeDrawer::FillReactangle(buffer, TLc_x, max_c_y, BLc_x, max_e_y, TFT_CYAN);
-		EyeDrawer::FillReactangle(buffer, min_e_x, TRc_y, min_c_x, TLc_y, TFT_CYAN);
-		EyeDrawer::FillReactangle(buffer, max_c_x, BRc_y, max_e_x, BLc_y, TFT_CYAN);
+		EyeDrawer::FillReactangle(buffer, TRc_x, min_e_y, BRc_x, min_c_y, TFT_COLOR);
+		EyeDrawer::FillReactangle(buffer, TLc_x, max_c_y, BLc_x, max_e_y, TFT_COLOR);
+		EyeDrawer::FillReactangle(buffer, min_e_x, TRc_y, min_c_x, TLc_y, TFT_COLOR);
+		EyeDrawer::FillReactangle(buffer, max_c_x, BRc_y, max_e_x, BLc_y, TFT_COLOR);
 
 		if (config->Slope_Top > 0)
 		{
 			EyeDrawer::FillRectangularTriangle(buffer, TL1_x, TL1_y, TR1_x, TR1_y, TFT_BLACK);
-				EyeDrawer::FillRectangularTriangle(buffer, TR1_x, TR1_y, TL1_x, TL1_y, TFT_CYAN);
+				EyeDrawer::FillRectangularTriangle(buffer, TR1_x, TR1_y, TL1_x, TL1_y, TFT_COLOR);
 		}
 		else if (config->Slope_Top < 0)
 		{
 			EyeDrawer::FillRectangularTriangle(buffer, TR1_x, TR1_y, TL1_x, TL1_y, TFT_BLACK);
-			EyeDrawer::FillRectangularTriangle(buffer, TL1_x, TL1_y, TR1_x, TR1_y, TFT_CYAN);
+			EyeDrawer::FillRectangularTriangle(buffer, TL1_x, TL1_y, TR1_x, TR1_y, TFT_COLOR);
 		}
 
 		if (config->Slope_Bottom > 0)
 		{
 			EyeDrawer::FillRectangularTriangle(buffer, BR1_x, BR1_y, BL1_x, BL1_y, TFT_BLACK);
-			EyeDrawer::FillRectangularTriangle(buffer, BL1_x, BL1_y, BR1_x, BR1_y, TFT_CYAN);
+			EyeDrawer::FillRectangularTriangle(buffer, BL1_x, BL1_y, BR1_x, BR1_y, TFT_COLOR);
 		}
 		else if (config->Slope_Bottom < 0)
 		{
 			EyeDrawer::FillRectangularTriangle(buffer, BL1_x, BL1_y, BR1_x, BR1_y, TFT_BLACK);
-			EyeDrawer::FillRectangularTriangle(buffer, BR1_x, BR1_y, BL1_x, BL1_y, TFT_CYAN);
+			EyeDrawer::FillRectangularTriangle(buffer, BR1_x, BR1_y, BL1_x, BL1_y, TFT_COLOR);
 		}
 
 
 		if (config->Radius_Top > 0)
 		{
-			EyeDrawer::FilleEllipseCorner(buffer, T_L, TLc_x, TLc_y, config->Radius_Top, config->Radius_Top, TFT_CYAN);
-			EyeDrawer::FilleEllipseCorner(buffer, T_R, TRc_x, TRc_y, config->Radius_Top, config->Radius_Top, TFT_CYAN);
+			EyeDrawer::FilleEllipseCorner(buffer, T_L, TLc_x, TLc_y, config->Radius_Top, config->Radius_Top, TFT_COLOR);
+			EyeDrawer::FilleEllipseCorner(buffer, T_R, TRc_x, TRc_y, config->Radius_Top, config->Radius_Top, TFT_COLOR);
 		}
 
 		if (config->Radius_Bottom > 0)
 		{
-			EyeDrawer::FilleEllipseCorner(buffer, B_L, BLc_x, BLc_y, config->Radius_Bottom, config->Radius_Bottom, TFT_CYAN);
-			EyeDrawer::FilleEllipseCorner(buffer, B_R, BRc_x, BRc_y, config->Radius_Bottom, config->Radius_Bottom, TFT_CYAN);
+			EyeDrawer::FilleEllipseCorner(buffer, B_L, BLc_x, BLc_y, config->Radius_Bottom, config->Radius_Bottom, TFT_COLOR);
+			EyeDrawer::FilleEllipseCorner(buffer, B_R, BRc_x, BRc_y, config->Radius_Bottom, config->Radius_Bottom, TFT_COLOR);
 		}
 
 		if (config->Inverse_Radius_Top > 0)
@@ -322,4 +325,3 @@ public:
 
 
 #endif
-

@@ -21,7 +21,7 @@ You should have received a copy of the GNU Affero General Public License along w
 
 enum eEmotions
 {
-	Normal,
+	Normal=0,
 	Angry,
 	Glee,
 	Happy,
@@ -43,4 +43,3 @@ enum eEmotions
 };
 
 #endif
-
