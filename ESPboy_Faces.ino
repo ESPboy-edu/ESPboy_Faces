@@ -19,7 +19,7 @@ You should have received a copy of the GNU Affero General Public License along w
 #include "ESPboyInit.h"
 #include "Face.h"
 
-#define WIDTH  80 //it's HEIGHT on ESPboy
+#define WIDTH  80//64 //it's HEIGHT on ESPboy
 #define HEIGHT 128 //it's WIDTH on ESPboy
 #define EYE 40
 
@@ -56,6 +56,7 @@ void setup(void) {
   Buffer.createSprite(WIDTH, HEIGHT);
   face.Expression.GoTo_Normal();
   face.Behavior.Clear();
+  
   myESPboy.tft.setTextColor(TFT_YELLOW, TFT_BLACK);
   myESPboy.tft.setTextSize(2);
 }
@@ -69,8 +70,8 @@ void loop() {
 
  if (millis()-counter > 3000) {
    counter=millis();
-   emotionno=n;//random(EMOTIONS_COUNT);
-   n++;
+   emotionno = n++;
+   //emotionno = random(EMOTIONS_COUNT);
    if(n>=EMOTIONS_COUNT)n=0;
    emotionflag=1;
  }
