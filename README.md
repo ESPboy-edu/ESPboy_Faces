@@ -4,6 +4,26 @@ ESPboy Faces - 18 emotions of Anki Cozmo
 port for ESPboy project by RomanS
 www.espboy.com
 
+List of emotions:
+ 1. Normal
+ 2. Angry
+ 3. Glee
+ 4. Happy
+ 5. Sad
+ 6. Worried
+ 7. Focused
+ 8. Annoyed
+ 9. Surprised
+ 10. Skeptic
+ 11. Fustrated
+ 12. Unimpressed
+ 13. Sleepy
+ 14. Suspicious
+ 15. Squint
+ 16. Furious
+ 17. Scared
+ 18. Awe
+
 ***************************************************
 
 Copyright (c) 2020 Luis Llamas
